@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import '../bloc.navigation_bloc/navigation_bloc.dart';
 
 class MyCard extends StatefulWidget with NavigationStates {
+  // Change to Enum
+  // Bug with line 22 pos 19 showBackView != True
   const MyCard({
     Key key,
     @required this.cardNumber,
@@ -119,17 +121,19 @@ class _MyCardState extends State<MyCard> with SingleTickerProviderStateMixin {
       controller.reverse();
     }
 
-    return Stack(
-      children: <Widget>[
-        AnimationCard(
-          animation: _frontRotation,
-          child: buildFrontContainer(width, height, context, orientation),
-        ),
-        AnimationCard(
-          animation: _backRotation,
-          child: buildBackContainer(width, height, context, orientation),
-        ),
-      ],
+    return Center(
+      child: Stack(
+        children: <Widget>[
+          AnimationCard(
+            animation: _frontRotation,
+            child: buildFrontContainer(width, height, context, orientation),
+          ),
+          AnimationCard(
+            animation: _backRotation,
+            child: buildBackContainer(width, height, context, orientation),
+          ),
+        ],
+      ),
     );
   }
 
@@ -142,14 +146,15 @@ class _MyCardState extends State<MyCard> with SingleTickerProviderStateMixin {
     BuildContext context,
     Orientation orientation,
   ) {
-    final TextStyle defaultTextStyle = Theme.of(context).textTheme.title.merge(
-          TextStyle(
-            color: Colors.black,
-            fontFamily: 'halter',
-            fontSize: 16,
-            package: 'flutter_credit_card',
-          ),
-        );
+    final TextStyle defaultTextStyle =
+        Theme.of(context).textTheme.headline6.merge(
+              TextStyle(
+                color: Colors.black,
+                fontFamily: 'halter',
+                fontSize: 16,
+                package: 'flutter_credit_card',
+              ),
+            );
 
     return Container(
       decoration: BoxDecoration(
@@ -238,14 +243,15 @@ class _MyCardState extends State<MyCard> with SingleTickerProviderStateMixin {
     BuildContext context,
     Orientation orientation,
   ) {
-    final TextStyle defaultTextStyle = Theme.of(context).textTheme.title.merge(
-          TextStyle(
-            color: Colors.white,
-            fontFamily: 'halter',
-            fontSize: 16,
-            package: 'flutter_credit_card',
-          ),
-        );
+    final TextStyle defaultTextStyle =
+        Theme.of(context).textTheme.headline6.merge(
+              TextStyle(
+                color: Colors.white,
+                fontFamily: 'halter',
+                fontSize: 16,
+                package: 'flutter_credit_card',
+              ),
+            );
 
     return Container(
       margin: const EdgeInsets.all(16),

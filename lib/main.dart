@@ -1,6 +1,5 @@
+import 'package:UI_Testing_UYFC/pages/SplashScreen.dart';
 import 'package:flutter/material.dart';
-
-import 'sidebar/sidebar_layout.dart';
 
 void main() => runApp(MyApp());
 
@@ -10,10 +9,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        scaffoldBackgroundColor: Colors.white,
-        primaryColor: Colors.white
-      ),
-      home: SideBarLayout(),
+          scaffoldBackgroundColor: Colors.white, primaryColor: Colors.white),
+      home: SplashScreen(),
     );
   }
 }
